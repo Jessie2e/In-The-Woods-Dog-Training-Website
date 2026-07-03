@@ -35,27 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
-
-    // Form Submission Handling
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = bookingForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            
-            btn.textContent = 'Sending Request...';
-            btn.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                btn.textContent = 'Request Sent!';
-                bookingForm.reset();
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.opacity = '1';
-                }, 3000);
-            }, 1500);
-        });
-    }
 });
