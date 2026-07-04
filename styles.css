@@ -446,3 +446,16 @@ a { text-decoration: none; color: inherit; }
         transform: none; /* Disables the desktop horizontal slide tweak */
     }
 }
+
+/* Changes the accent dash to white only inside the testimonials section */
+.testimonials h2::after {
+    background-color: #ffffff !important;
+}
+
+.nav-logo {
+    height: 45px; /* Adjust this to match the height of the original circular logo */
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
