@@ -155,7 +155,7 @@ a { text-decoration: none; color: inherit; }
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Changed from 1rem to 0.5rem to trim the thickness */
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: padding 0.3s ease;
 }
@@ -168,7 +168,7 @@ a { text-decoration: none; color: inherit; }
 .logo-text { font-weight: 700; font-size: 1.25rem; color: var(--clr-black); }
 
 .main-nav { display: flex; }
-.nav-list { display: flex; list-style: none; justify-content: center; align-items: center; gap: 2rem; }
+.nav-list { display: flex; list-style: none; justify-content: center; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
 .nav-list a { font-weight: 600; font-size: 0.95rem; text-align: center; transition: color 0.3s; }
 .nav-list a:not(.btn):hover { color: var(--clr-olive); }
 
@@ -193,6 +193,8 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     background-color: var(--bg-main);
     overflow: hidden;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .hero .container {
@@ -281,12 +283,20 @@ a { text-decoration: none; color: inherit; }
    GALLERY & MEDIA
 ========================================= */
 .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start; }
-.video-wrapper { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); background: #000; }
-.vertical-video { padding-bottom: 178%; }
-.horizontal-video { padding-bottom: 75%; }
-.post-video { padding-bottom: 120%; }
-.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
+.video-wrapper { 
+    width: 100%; 
+    border-radius: var(--radius-md); 
+    box-shadow: var(--shadow-soft); 
+    background: #000; 
+}
+.vertical-video { aspect-ratio: 9 / 16; }
+.horizontal-video { aspect-ratio: 16 / 9; }
+.post-video { aspect-ratio: 4 / 5; }
+.video-wrapper iframe { 
+    width: 100%; 
+    height: 100%; 
+    border: none;
+}
 /* =========================================
    CONTINUOUS PHOTO MARQUEE CAROUSEL
 ========================================= */
@@ -400,12 +410,78 @@ a { text-decoration: none; color: inherit; }
 /* =========================================
    MEDIA QUERIES (IPHONE & MOBILE RESPONSIVENESS)
 ========================================= */
-@media (max-width: 768px) {
+
+/* --- 1. GLOBAL TWEAKS (Keep out of media queries so they work everywhere) --- */
+.testimonials h2::after {
+    background-color: #ffffff !important;
+}
+
+.nav-logo {
+    height: 70px; /* Changed from 75px to 55px to make it perfectly compact */
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+section, #about, #services, #gallery, #reviews {
+    scroll-margin-top: 75px;
+}
+
+.form-section-logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.form-section-logo img {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+}
+
+.form-side-logo {
+    width: 321px;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+
+/* --- 2. MOBILE RESPONSIVE FIXES (992px and smaller) --- */
+@media (max-width: 992px) {
     
+    /* HEADER & NAVIGATION MOBIL MENU */
+    .mobile-toggle {
+        display: flex; 
+    }
+
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1.5rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Allows script.js to show dropdown when active/open class is added */
+    .main-nav.active,
+    .main-nav.open { 
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* HERO SECTION MOBILE STACKING */
     .hero {
-        /* Switches from side-by-side to stacked vertically */
         grid-template-columns: 1fr; 
-        padding-top: 100px; /* Gives space below the mobile menu */
+        padding-top: 100px;
         min-height: auto;
         gap: var(--sp-lg);
     }
@@ -419,19 +495,16 @@ a { text-decoration: none; color: inherit; }
 
     .hero-content {
         max-width: 100%;
-        text-align: center; /* Centers your text, subhead, and buttons cleanly on phone screens */
+        text-align: center;
     }
 
     .hero-actions {
-        justify-content: center; /* Keeps buttons neatly centered together */
+        justify-content: center;
     }
 
-    /* Sets up a dedicated, perfect display square for the illustration below the text */
     .hero-image-wrapper {
         width: 100%;
-        height: 350px; /* Gives the illustration a perfect frame height on mobile */
-        
-        /* Flattens the steep desktop cut to a minor, phone-friendly slope */
+        height: 350px;
         clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); 
         overflow: hidden;
     }
@@ -440,69 +513,83 @@ a { text-decoration: none; color: inherit; }
         width: 100%;
         height: 100%;
         object-fit: cover;
-        
-        /* Centers the four dogs horizontally and aligns to the top so heads aren't lost */
         object-position: center top; 
-        transform: none; /* Disables the desktop horizontal slide tweak */
+        transform: none;
     }
-}
 
-/* Changes the accent dash to white only inside the testimonials section */
-.testimonials h2::after {
-    background-color: #ffffff !important;
-}
+    /* ABOUT & CONTACT GRID MOBILE STACKING */
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr; /* Force columns to drop underneath each other */
+    }
 
-.nav-logo {
-    height: 75px; /* Adjust this to match the height of the original circular logo */
-    width: auto;
-    object-fit: contain;
-    vertical-align: middle;
-    margin-right: 12px;
-  }
-  /* Fixes the header blocking content when clicking 'About', 'Services', etc. */
-section, 
-#about, 
-#services, 
-#gallery, 
-#reviews {
-    scroll-margin-top: 75px; /* Adjust this number if you need more or less breathing room */
-}
+    .about-grid {
+        gap: 2rem;
+    }
 
-/* =========================================
-   FORM SECTION - SIDE LOGO
-========================================= */
-.form-section-logo {
-    display: flex;
-    justify-content: flex-start; /* Aligns left with the headings */
-    margin-bottom: 1.25rem;      /* Breathing room right before the main heading */
-}
+    .contact-grid {
+        gap: 2.5rem;
+    }
 
-.form-section-logo img {
-    width: 130px;                /* Perfect size to balance the right column */
-    height: auto;
-    object-fit: contain;
-}
+    .contact-info {
+        text-align: center;
+    }
 
-/* Responsive adjustment for tablet/mobile viewports */
-@media (max-width: 768px) {
+    /* LOGO MOBILE ALIGNMENT & RESPONSIVE SCALING */
     .form-section-logo {
-        justify-content: center; /* Centers the logo if the layout switches to a single column */
+        justify-content: center;
         margin-bottom: 1.5rem;
     }
-}
 
-/* Restrains the new evaluation section logo size */
-.form-side-logo {
-    width: 321px;        /* Forces it down from massive full-res to a perfect accent size */
-    height: auto;
-    display: block;
-    margin-bottom: 1rem; /* Creates clean spacing between the logo and the heading below it */
-}
-
-/* If the layout stacks on mobile, center the logo */
-@media (max-width: 768px) {
     .form-side-logo {
+        max-width: 100%; /* Keeps the Dane logo from spilling over mobile screens */
+        width: 280px;    /* Perfectly scales it down for phone viewports */
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+/* =========================================
+   FOOTER SOCIAL MEDIA LINKS
+========================================= */
+.footer-socials {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-socials p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.75rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Subtle interactive pop when hovering over icons */
+.social-icons a:hover {
+    color: var(--clr-olive, #8a9a86); /* Uses your custom olive color if available, or falls back to standard olive */
+    transform: translateY(-2px);
+}
+
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
