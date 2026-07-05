@@ -193,8 +193,6 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     background-color: var(--bg-main);
     overflow: hidden;
-    max-width: 1600px;
-    margin: 0 auto;
 }
 
 .hero .container {
