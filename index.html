@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +24,44 @@
       "makesOffer": [
         {
           "@type": "Offer",
-          "name": "Dog Training & Behavior Intervention",
+          "name": "Board & Train - Behavioral/Obedience",
           "price": "150.00",
-          "priceCurrency": "USD",
-          "unitText": "HOUR"
+          "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
-          "name": "Dog Boarding",
-          "priceRange": "$80 - $150 per night"
+          "name": "Board & Train - Puppy/Socialization (Service Dog/Public Access)",
+          "price": "250.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Board & Train - Rehab/Mild Aggression",
+          "price": "200.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "General Boarding",
+          "price": "50.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Previous Clients Boarding Discount",
+          "price": "30.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Initial Consultation",
+          "price": "40.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "In-Home Problem Solving (1.5 Hours)",
+          "priceRange": "$70 - $100"
         }
       ]
     }
@@ -88,24 +118,88 @@
             <div class="container">
                 <div class="section-header center">
                     <h2>Our Services & Pricing</h2>
-                    <p>Prices are determined based on your financial needs and your dog's level of need. Let's work together to find the right fit for you.</p>
+                    <p>Prices are tailored to fit your dog's level of need. Let's work together to find the right program for your pack.</p>
                 </div>
                 
                 <div class="services-grid">
+                    <!-- Board & Train Programs -->
                     <div class="service-card">
-                        <div class="service-icon">🐾</div>
-                        <h3>Behavior Intervention & Training</h3>
-                        <p class="price">~$150 per hour</p>
-                        <p>Our most important service. Specialized, one-on-one intervention to correct behavioral issues and teach essential skills.</p>
+                        <div>
+                            <div class="service-icon">🌲</div>
+                            <h3>Board & Train Programs</h3>
+                            <ul class="price-list">
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">Behavioral & Obedience</span>
+                                        <span class="price-amount">$150</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">Rehab / Mild Aggression</span>
+                                        <span class="price-amount">$200</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">Puppy & Socialization</span>
+                                        <span class="price-amount">$250</span>
+                                    </div>
+                                    <span class="price-details">Specifically for Service Dog public access preparation.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Immersive, structured training environments designed for impactful results and behavioral updates.</p>
                     </div>
-
+                
+                    <!-- Premium Boarding -->
                     <div class="service-card">
-                        <div class="service-icon">🏡</div>
-                        <h3>Premium Boarding</h3>
-                        <p class="price">$80 - $150 per night</p>
-                        <p>Safe, structured, and comfortable boarding tailored to your dog's specific behavioral and care needs while you are away.</p>
+                        <div>
+                            <div class="service-icon">🏡</div>
+                            <h3>Structured Boarding</h3>
+                            <ul class="price-list">
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">General Boarding</span>
+                                        <span class="price-amount">$50 / night</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">Loyalty Discount</span>
+                                        <span class="price-amount">$30 / night</span>
+                                    </div>
+                                    <span class="price-details">Exclusive pricing for previous training clients.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Safe, comfortable, and routine-driven boarding tailored to your dog's ongoing behavioral and care requirements.</p>
                     </div>
-                </div>
+                
+                    <!-- Consults & In-Home Training -->
+                    <div class="service-card">
+                        <div>
+                            <div class="service-icon">🐾</div>
+                            <h3>Consults & In-Home Support</h3>
+                            <ul class="price-list">
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">Initial Consultation</span>
+                                        <span class="price-amount">$40</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="price-row">
+                                        <span class="price-item-name">In-Home Problem Solving</span>
+                                        <span class="price-amount">~$70 - $100</span>
+                                    </div>
+                                    <span class="price-details">Dedicated 1.5-hour session in your home environment.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>One-on-one intervention to identify triggers, break bad habits, and teach essential everyday manners.</p>
+                    </div>
+                </div>                    
 
                 <div class="center mt-4">
                     <a href="#contact" class="btn primary-btn easter-egg-btn">Let's Discuss Your Dog's Needs</a>
@@ -205,7 +299,6 @@
                             <input type="email" id="email" name="email" required placeholder="john@example.com">
                         </div>
                         
-                        <!-- NEW: Phone Number Field -->
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
@@ -215,9 +308,13 @@
                             <label for="service">Service Needed</label>
                             <select id="service" name="service" required>
                                 <option value="">Select a service...</option>
-                                <option value="behavior">Behavior Intervention</option>
-                                <option value="training">General Dog Training</option>
-                                <option value="boarding">Boarding</option>
+                                <option value="board-train-behavior">Board & Train - Behavioral/Obedience</option>
+                                <option value="board-train-puppy">Board & Train - Puppy (Service Dog / Public Access)</option>
+                                <option value="board-train-rehab">Board & Train - Rehab/Aggression</option>
+                                <option value="boarding-general">General Boarding</option>
+                                <option value="boarding-client">Boarding (Previous Client Discount)</option>
+                                <option value="consult">Initial Consultation</option>
+                                <option value="in-home">In-Home Problem Solving (1.5 Hr)</option>
                             </select>
                         </div>
                         <div class="form-group">

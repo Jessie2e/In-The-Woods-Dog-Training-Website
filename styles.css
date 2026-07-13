@@ -252,17 +252,22 @@ a { text-decoration: none; color: inherit; }
 ========================================= */
 .services-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* Lowered minmax to 280px to prevent awkward breaking on smaller tablets */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 2rem; 
-    margin-top: var(--sp-lg); 
+    margin-top: var(--sp-lg);
+    align-items: stretch; /* Ensures all cards match in height naturally */
 }
 
 .service-card { 
     background: white; 
-    padding: 2.5rem; 
+    padding: 2.5rem 2rem; 
     border-radius: var(--radius-md); 
     box-shadow: var(--shadow-soft); 
     text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes the bottom paragraph to the base uniformly */
     
     /* Smooth out the transform AND the shadow glow change */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
@@ -270,13 +275,92 @@ a { text-decoration: none; color: inherit; }
 
 .service-card:hover { 
     transform: translateY(-5px); 
-    
-    /* REPLACED WITH A SUBTLE PINK GLOW SHADOW */
-    box-shadow: 0 10px 25px rgba(74, 112, 46, 0.5); 
+    /* Cleaned up subtle depth shadow */
+    box-shadow: 0 15px 30px rgba(74, 112, 46, 0.15); 
 }
 
-.service-icon { font-size: 3rem; margin-bottom: 1rem; }
-.price { font-weight: 700; color: var(--clr-olive); font-size: 1.25rem; margin-bottom: 1rem; }
+.service-icon { 
+    font-size: 3rem; 
+    margin-bottom: 0.5rem; 
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+/* New Clean Price List Layout */
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0px 0px 2rem 0px;
+    text-align: left;
+    width: 100%;
+}
+
+.price-list li {
+    margin-bottom: 1.25rem;
+    border-bottom: 1px dashed #e5e5e5;
+    padding-bottom: 0.75rem;
+}
+
+.price-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.price-item-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.price-amount { 
+    font-weight: 700; 
+    color: var(--clr-olive, #4a702e); 
+    font-size: 1.15rem; 
+    white-space: nowrap;
+}
+
+.price-details {
+    display: block; 
+    color: #666; 
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+}
+
+/* Card Bottom Paragraph */
+.service-card > p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: auto; /* Helps lock paragraph to the bottom */
+}
+
+/* Responsiveness tweak for mobile screens */
+@media (max-width: 480px) {
+    .service-card {
+        padding: 2rem 1.25rem;
+    }
+    .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+    .price-amount {
+        margin-top: 2px;
+    }
+}
 /* =========================================
    GALLERY & MEDIA
 ========================================= */
