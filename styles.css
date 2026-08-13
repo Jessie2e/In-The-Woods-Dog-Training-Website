@@ -3172,9 +3172,26 @@ textarea:focus-visible {
 
 }
 
-#testimonials {
-    display: none;
+
+
+/* =========================================================
+   MOBILE/TABLET HERO GAP FIX
+   Header is sticky now, so no extra header compensation
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .hero {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .hero .container {
+        padding-top: 1.25rem;
+    }
+
 }
+
 
 /* =========================================
    GALLERY BACKGROUND
@@ -3182,4 +3199,8 @@ textarea:focus-visible {
 
 #gallery {
     background-color: #f3eee8;
+}
+
+#testimonials {
+    display: none;
 }
