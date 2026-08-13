@@ -675,3 +675,2511 @@ section, #about, #services, #gallery, #reviews {
     height: 20px;
     vertical-align: middle;
 }
+
+/* =========================================================
+   IN THE WOODS — POLISH PASS
+   Paste this at the VERY END of styles.css
+========================================================= */
+
+
+/* =========================================================
+   EXTRA DESIGN TOKENS
+========================================================= */
+
+:root {
+    --shadow-card:
+        0 12px 35px rgba(39, 28, 36, 0.08);
+
+    --shadow-hover:
+        0 20px 45px rgba(39, 28, 36, 0.12);
+
+    --ease-premium:
+        cubic-bezier(.2, .75, .25, 1);
+}
+
+
+
+/* =========================================================
+   GLOBAL POLISH
+========================================================= */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+section {
+    scroll-margin-top: 95px;
+}
+
+.section-padding {
+    padding:
+        clamp(4.5rem, 7vw, 6.5rem) 0;
+}
+
+.section-header p {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Nice accessible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid
+        rgba(231, 175, 199, 0.75);
+
+    outline-offset: 4px;
+}
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    padding: 0.55rem 0;
+
+    background:
+        rgba(255, 255, 255, 0.91);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    border-bottom:
+        1px solid rgba(71, 59, 56, 0.06);
+
+    box-shadow:
+        0 4px 22px
+        rgba(15, 9, 4, 0.04);
+
+    transition:
+        padding 0.35s var(--ease-premium),
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.site-header.scrolled {
+    padding: 0.20rem 0;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 8px 30px
+        rgba(15, 9, 4, 0.08);
+}
+
+
+.nav-logo {
+    transition:
+        height 0.35s var(--ease-premium),
+        transform 0.35s var(--ease-premium);
+}
+
+
+.site-header.scrolled .nav-logo {
+    height: 58px;
+}
+
+
+.logo:hover .nav-logo {
+    transform:
+        rotate(-2deg)
+        scale(1.025);
+}
+
+
+
+/* =========================================================
+   DESKTOP NAV LINK ANIMATION
+========================================================= */
+
+.nav-list a:not(.btn) {
+    position: relative;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.nav-list a:not(.btn)::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        var(--clr-pink);
+
+    border-radius: 999px;
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        right center;
+
+    transition:
+        transform
+        0.3s
+        var(--ease-premium);
+}
+
+
+.nav-list a:not(.btn):hover::after {
+    transform:
+        scaleX(1);
+
+    transform-origin:
+        left center;
+}
+
+
+
+/* =========================================================
+   BUTTON POLISH
+========================================================= */
+
+.btn {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s var(--ease-premium),
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.btn:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.primary-btn:hover {
+    box-shadow:
+        0 10px 24px
+        rgba(90, 94, 68, 0.26);
+}
+
+
+.secondary-btn:hover {
+    box-shadow:
+        0 8px 20px
+        rgba(90, 94, 68, 0.12);
+}
+
+
+/*
+   Keep the cute easter egg,
+   but make it much less frantic.
+*/
+@keyframes gentleWag {
+
+    0%,
+    100% {
+        transform:
+            translateY(-2px)
+            rotate(0deg);
+    }
+
+    35% {
+        transform:
+            translateY(-2px)
+            rotate(-1.5deg);
+    }
+
+    70% {
+        transform:
+            translateY(-2px)
+            rotate(1.5deg);
+    }
+}
+
+
+.easter-egg-btn:hover {
+    animation:
+        gentleWag
+        0.42s
+        ease-in-out
+        1;
+
+    border-radius:
+        var(--radius-pill);
+}
+
+
+
+/* =========================================================
+   HERO — DESKTOP
+========================================================= */
+
+.hero {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 26% 30%,
+            rgba(231, 175, 199, 0.10),
+            transparent 24%
+        ),
+        var(--bg-main);
+}
+
+
+.hero::before {
+    content: '';
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    left: -190px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(233, 224, 215, 0.5);
+
+    pointer-events: none;
+}
+
+
+.hero .container {
+    position: relative;
+}
+
+
+.hero-content {
+    max-width: 560px;
+}
+
+
+.hero-content h1 {
+    letter-spacing: -0.025em;
+}
+
+
+.hero-sub {
+    max-width: 560px;
+
+    line-height: 1.75;
+}
+
+
+.hero-image-wrapper {
+    align-self: stretch;
+
+    position: relative;
+}
+
+
+.hero-image-wrapper::after {
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.10),
+            transparent 20%
+        );
+}
+
+
+/* Subtle desktop angle only */
+@media (min-width: 993px) {
+
+    .hero-image-wrapper {
+        clip-path:
+            polygon(
+                5% 0,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+    }
+
+}
+
+
+
+/* =========================================================
+   HEADING DETAILS
+========================================================= */
+
+.section-header.center h2::after,
+.testimonials .center > h2::after {
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.section-padding h2 {
+    letter-spacing:
+        -0.025em;
+}
+
+
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
+
+.service-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(71, 59, 56, 0.07);
+
+    box-shadow:
+        var(--shadow-card);
+}
+
+
+.service-card::before {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--clr-olive),
+            var(--clr-pink)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left center;
+
+    transition:
+        transform
+        0.45s
+        var(--ease-premium);
+}
+
+
+.service-card:hover {
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+
+.service-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+
+.service-icon {
+    transition:
+        transform
+        0.35s
+        var(--ease-premium);
+}
+
+
+.service-card:hover .service-icon {
+    transform:
+        translateY(-3px)
+        scale(1.05);
+}
+
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-grid {
+    gap:
+        clamp(3rem, 6vw, 6rem);
+}
+
+
+.about-text p {
+    max-width: 62ch;
+}
+
+
+.about-image {
+    position: relative;
+
+    isolation: isolate;
+}
+
+
+.about-image::before {
+    content: '';
+
+    position: absolute;
+
+    inset:
+        16px -16px -16px 16px;
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--clr-beige);
+
+    z-index: -1;
+
+    opacity: 0.85;
+
+    transition:
+        transform
+        0.4s
+        var(--ease-premium);
+}
+
+
+.about-image:hover::before {
+    transform:
+        translate(4px, 4px);
+}
+
+
+.about-image img {
+    display: block;
+
+    transition:
+        transform
+        0.5s
+        var(--ease-premium),
+        box-shadow
+        0.4s
+        ease;
+}
+
+
+.about-image:hover img {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+
+
+/* =========================================================
+   PHOTO MARQUEE
+========================================================= */
+
+.photo-marquee-container {
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0,
+            black 6%,
+            black 94%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0,
+            black 6%,
+            black 94%,
+            transparent 100%
+        );
+}
+
+
+.marquee-img {
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    transition:
+        transform
+        0.4s
+        var(--ease-premium),
+        box-shadow
+        0.4s
+        ease;
+}
+
+
+.marquee-img:hover {
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+
+
+/* =========================================================
+   TESTIMONIAL
+========================================================= */
+
+.testimonial-slider {
+    max-width: 760px;
+}
+
+
+.testimonial-card {
+    background:
+        rgba(255,255,255,0.42);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.55);
+
+    border-radius:
+        24px;
+
+    padding:
+        clamp(2rem, 5vw, 3.25rem);
+
+    box-shadow:
+        0 18px 45px
+        rgba(39, 28, 36, 0.06);
+}
+
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.booking-form {
+    border:
+        1px solid
+        rgba(71, 59, 56, 0.07);
+
+    box-shadow:
+        var(--shadow-card);
+
+    transition:
+        box-shadow
+        0.35s
+        ease;
+}
+
+
+.booking-form:hover {
+    box-shadow:
+        var(--shadow-hover);
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background:
+        #fffdfb;
+
+    border:
+        1px solid
+        rgba(71, 59, 56, 0.22);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color:
+        rgba(90, 94, 68, 0.5);
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background:
+        #ffffff;
+
+    border-color:
+        var(--clr-olive);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(90, 94, 68, 0.12);
+}
+
+
+
+/* =========================================================
+   SOCIAL VIDEO CARDS
+========================================================= */
+
+.video-wrapper {
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(71, 59, 56, 0.08);
+
+    transition:
+        transform
+        0.35s
+        var(--ease-premium),
+        box-shadow
+        0.35s
+        ease;
+}
+
+
+.video-wrapper:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--shadow-hover);
+}
+
+
+
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(24px);
+
+    transition:
+        opacity
+        0.7s
+        var(--ease-premium),
+
+        transform
+        0.7s
+        var(--ease-premium),
+
+        box-shadow
+        0.3s
+        ease;
+
+    transition-delay:
+        var(--reveal-delay, 0ms);
+}
+
+
+.reveal.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 992px) {
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+
+    .mobile-toggle {
+        display: flex;
+
+        position: relative;
+
+        width: 44px;
+        height: 44px;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 7px;
+
+        gap: 5px;
+
+        z-index: 1002;
+
+        border-radius: 50%;
+
+        transition:
+            background-color
+            0.25s
+            ease;
+    }
+
+
+    .mobile-toggle:hover {
+        background:
+            rgba(233, 224, 215, 0.7);
+    }
+
+
+    .mobile-toggle span {
+        width: 26px;
+        height: 2px;
+
+        border-radius: 999px;
+
+        transition:
+            transform
+            0.35s
+            var(--ease-premium),
+            opacity
+            0.25s
+            ease;
+    }
+
+
+    .mobile-toggle.active span:nth-child(1) {
+        transform:
+            translateY(7px)
+            rotate(45deg);
+    }
+
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+
+        transform:
+            scaleX(0);
+    }
+
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+    }
+
+
+    .main-nav {
+        display: block;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        padding: 0;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform:
+            translateY(-10px);
+
+        pointer-events: none;
+
+        background:
+            rgba(255,255,255,0.98);
+
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+
+        border-top:
+            1px solid
+            rgba(71,59,56,0.05);
+
+        box-shadow:
+            0 18px 35px
+            rgba(15,9,4,0.09);
+
+        transition:
+            opacity
+            0.3s
+            ease,
+
+            transform
+            0.35s
+            var(--ease-premium),
+
+            max-height
+            0.4s
+            var(--ease-premium),
+
+            padding
+            0.4s
+            var(--ease-premium),
+
+            visibility
+            0.3s
+            ease;
+    }
+
+
+    .main-nav.active,
+    .main-nav.open {
+        max-height: 520px;
+
+        padding:
+            1.4rem 0 1.7rem;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform:
+            translateY(0);
+
+        pointer-events: auto;
+    }
+
+
+    .nav-list {
+        gap: 1.3rem;
+    }
+
+
+    .nav-list a:not(.btn) {
+        font-size: 1rem;
+    }
+
+
+    .nav-list .btn {
+        min-width: 170px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE HERO — THE BIG CHANGE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .hero {
+        display: block;
+
+        min-height: auto;
+
+        padding-top: 86px;
+
+        padding-bottom: 0;
+
+        background:
+            linear-gradient(
+                180deg,
+                #ffffff 0%,
+                #ffffff 68%,
+                var(--clr-beige) 100%
+            );
+    }
+
+
+    .hero::before {
+        width: 190px;
+        height: 190px;
+
+        left: -95px;
+        top: 130px;
+        bottom: auto;
+
+        opacity: 0.65;
+    }
+
+
+    .hero .container {
+        position: relative;
+
+        z-index: 4;
+
+        width:
+            calc(100% - 2rem);
+
+        max-width: 720px;
+
+        margin:
+            0 auto;
+
+        padding:
+            2rem 0 0;
+    }
+
+
+    .hero-content {
+        position: relative;
+
+        max-width: none;
+
+        padding:
+            clamp(
+                1.5rem,
+                5vw,
+                2.25rem
+            );
+
+        margin-bottom:
+            -2.5rem;
+
+        text-align: left;
+
+        background:
+            rgba(255,255,255,0.96);
+
+        border:
+            1px solid
+            rgba(71,59,56,0.08);
+
+        border-radius:
+            24px;
+
+        box-shadow:
+            0 18px 45px
+            rgba(39,28,36,0.10);
+    }
+
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.15rem,
+                8vw,
+                3.4rem
+            );
+
+        line-height: 1.04;
+
+        margin-bottom: 1.5rem;
+    }
+
+
+    .hero-sub {
+        font-size:
+            1.02rem;
+
+        line-height:
+            1.65;
+
+        margin-bottom:
+            1.5rem;
+    }
+
+
+    .hero-actions {
+        justify-content:
+            flex-start;
+    }
+
+
+    /*
+       THIS REMOVES THE MOBILE DIAGONAL.
+
+       Instead, the white content card overlaps
+       the artwork by about 40px.
+    */
+    .hero-image-wrapper {
+        width:
+            calc(100% - 1rem);
+
+        height:
+            clamp(
+                360px,
+                82vw,
+                520px
+            );
+
+        margin:
+            0 auto;
+
+        clip-path:
+            none;
+
+        border-radius:
+            26px 26px 0 0;
+
+        overflow:
+            hidden;
+    }
+
+
+    .hero-bg-img {
+        width: 100%;
+        height: 100%;
+
+        object-fit:
+            cover;
+
+        object-position:
+            center top;
+
+        transform:
+            none;
+    }
+
+
+    .hero-image-wrapper::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.08),
+                transparent 25%
+            );
+    }
+
+}
+
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .section-padding {
+        padding:
+            4rem 0;
+    }
+
+
+    .container {
+        width:
+            calc(100% - 2rem);
+    }
+
+
+    .logo-text {
+        font-size:
+            1.05rem;
+    }
+
+
+    .nav-logo {
+        height:
+            62px;
+    }
+
+
+    .site-header.scrolled .nav-logo {
+        height:
+            54px;
+    }
+
+
+    .hero {
+        padding-top:
+            78px;
+    }
+
+
+    .hero .container {
+        width:
+            calc(100% - 1.5rem);
+
+        padding-top:
+            1.25rem;
+    }
+
+
+    .hero-content {
+        padding:
+            1.4rem;
+
+        border-radius:
+            20px;
+
+        margin-bottom:
+            -2rem;
+    }
+
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2rem,
+                10vw,
+                2.75rem
+            );
+    }
+
+
+    .hero-actions {
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+
+        width: 100%;
+    }
+
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+
+    .hero-image-wrapper {
+        width:
+            calc(100% - 0.75rem);
+
+        height:
+            clamp(
+                340px,
+                100vw,
+                450px
+            );
+
+        border-radius:
+            22px 22px 0 0;
+    }
+
+
+    .about-image::before {
+        inset:
+            9px -9px -9px 9px;
+    }
+
+
+    .marquee-img {
+        width: 220px;
+        height: 220px;
+    }
+
+
+    .photo-marquee-track {
+        animation-duration:
+            42s;
+    }
+
+
+    .booking-form {
+        padding:
+            1.5rem;
+    }
+
+}
+
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none),
+       (pointer: coarse) {
+
+    body {
+        cursor: auto;
+    }
+
+
+    .service-card:hover,
+    .about-image:hover img,
+    .video-wrapper:hover,
+    .marquee-img:hover,
+    .btn:hover {
+        transform: none;
+    }
+
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+
+    .reveal {
+        opacity: 1 !important;
+
+        transform:
+            none !important;
+    }
+
+
+    .photo-marquee-container {
+        overflow-x: auto;
+
+        -webkit-mask-image: none;
+
+        mask-image: none;
+    }
+
+
+    .photo-marquee-track {
+        animation: none !important;
+    }
+
+}
+/* =========================================================
+   HERO RESPONSIVENESS FIX
+   This overrides the previous hero sizing/cropping rules.
+   KEEP THIS AT THE VERY BOTTOM OF styles.css
+========================================================= */
+
+
+/* =========================================================
+   BASE IMAGE RULE
+   Never crop the illustration by default.
+========================================================= */
+
+.hero-image-wrapper {
+    clip-path: none;
+}
+
+.hero-bg-img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center center;
+
+    transform: none;
+}
+
+
+
+/* =========================================================
+   TABLETS + PHONES
+   Treat the hero like an editorial stacked layout.
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .hero {
+        display: block;
+
+        min-height: auto;
+
+        padding-top: 86px;
+        padding-bottom: 0;
+
+        background:
+            radial-gradient(
+                circle at 5% 25%,
+                rgba(233, 224, 215, 0.65),
+                transparent 18%
+            ),
+            #ffffff;
+    }
+
+
+    /* -------------------------------
+       TEXT CONTAINER
+    -------------------------------- */
+
+    .hero .container {
+        position: relative;
+
+        z-index: 3;
+
+        width: calc(100% - 2rem);
+        max-width: 850px;
+
+        margin: 0 auto;
+
+        padding: 2rem 0 0;
+    }
+
+
+    .hero-content {
+        max-width: none;
+
+        margin: 0;
+
+        padding:
+            clamp(1.6rem, 4vw, 2.5rem);
+
+        text-align: left;
+
+        background:
+            rgba(255, 255, 255, 0.97);
+
+        border:
+            1px solid
+            rgba(71, 59, 56, 0.08);
+
+        border-radius: 24px;
+
+        box-shadow:
+            0 18px 45px
+            rgba(39, 28, 36, 0.09);
+    }
+
+
+    .hero-content h1 {
+        max-width: 760px;
+
+        font-size:
+            clamp(
+                2.6rem,
+                6.5vw,
+                4rem
+            );
+
+        line-height: 1.02;
+
+        margin-bottom: 1.5rem;
+    }
+
+
+    .hero-sub {
+        max-width: 690px;
+
+        font-size:
+            clamp(
+                1rem,
+                2vw,
+                1.15rem
+            );
+
+        line-height: 1.7;
+
+        margin-bottom: 1.6rem;
+    }
+
+
+    .hero-actions {
+        justify-content: flex-start;
+    }
+
+
+    /* -------------------------------
+       ARTWORK
+
+       No fixed height.
+       No cover.
+       No overlap.
+
+       The IMG determines its own
+       natural height.
+    -------------------------------- */
+
+    .hero-image-wrapper {
+        position: relative;
+
+        width: calc(100% - 2rem);
+        max-width: 1100px;
+
+        height: auto;
+
+        margin:
+            1.25rem auto 0;
+
+        border-radius:
+            24px 24px 0 0;
+
+        overflow: hidden;
+
+        clip-path: none;
+
+        background:
+            var(--clr-olive);
+    }
+
+
+    .hero-bg-img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+        object-position: center;
+
+        transform: none;
+    }
+
+
+    /*
+       Remove the old image overlay.
+       It isn't needed anymore.
+    */
+
+    .hero-image-wrapper::after {
+        display: none;
+    }
+
+}
+
+
+
+/* =========================================================
+   TABLET / COMPACT LAPTOP
+   700px–1199px
+========================================================= */
+
+@media (min-width: 700px) and (max-width: 1199px) {
+
+    .hero .container {
+        padding-top:
+            clamp(
+                2rem,
+                5vw,
+                3.25rem
+            );
+    }
+
+
+    .hero-content {
+        padding:
+            clamp(
+                2rem,
+                5vw,
+                3rem
+            );
+    }
+
+
+    /*
+       On wide tablets the heading can use
+       its available horizontal space instead
+       of wrapping into four lines.
+    */
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                3rem,
+                6vw,
+                4.25rem
+            );
+    }
+
+
+    /*
+       Keep the artwork comfortably close
+       without physically covering it.
+    */
+
+    .hero-image-wrapper {
+        margin-top: 1.5rem;
+    }
+
+}
+
+
+
+/* =========================================================
+   REAL DESKTOP
+   Only switch to split-screen when there is actually
+   enough horizontal space for both halves.
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .hero {
+        display: grid;
+
+        grid-template-columns:
+            minmax(400px, 43%)
+            minmax(0, 57%);
+
+        align-items: stretch;
+
+        min-height:
+            calc(100svh - 80px);
+
+        padding-top: 80px;
+
+        background:
+            radial-gradient(
+                circle at 18% 35%,
+                rgba(231, 175, 199, 0.08),
+                transparent 25%
+            ),
+            #ffffff;
+    }
+
+
+    .hero .container {
+        display: flex;
+
+        align-items: center;
+
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+
+        padding-left:
+            clamp(
+                3rem,
+                7vw,
+                8rem
+            );
+
+        padding-right:
+            clamp(
+                2rem,
+                4vw,
+                4rem
+            );
+    }
+
+
+    .hero-content {
+        width: 100%;
+        max-width: 550px;
+
+        margin: 0;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: 0;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.75rem,
+                4vw,
+                4rem
+            );
+
+        line-height: 1.02;
+    }
+
+
+    /*
+       IMAGE PANEL
+
+       contain = entire illustration stays visible.
+
+       The olive behind it acts as a natural extension
+       of the grassy artwork if the proportions don't
+       perfectly match the screen.
+    */
+
+    .hero-image-wrapper {
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height:
+            calc(100svh - 80px);
+
+        min-height: 640px;
+
+        margin: 0;
+
+        overflow: hidden;
+
+        clip-path: none;
+
+        border-radius:
+            0 0 0 28px;
+
+        background:
+            var(--clr-olive);
+    }
+
+
+    .hero-bg-img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+
+        object-position:
+            center center;
+
+        transform: none;
+    }
+
+
+    .hero-image-wrapper::after {
+        display: none;
+    }
+
+}
+
+
+
+/* =========================================================
+   NORMAL PHONES
+========================================================= */
+
+@media (max-width: 699px) {
+
+    .hero {
+        padding-top: 78px;
+    }
+
+
+    .hero .container {
+        width:
+            calc(100% - 1.5rem);
+
+        padding-top:
+            1.25rem;
+    }
+
+
+    .hero-content {
+        padding:
+            1.4rem;
+
+        border-radius:
+            20px;
+    }
+
+
+    /*
+       The old heading was just too large
+       at ~375–430px widths.
+    */
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.25rem,
+                10vw,
+                2.8rem
+            );
+
+        line-height: 0.99;
+
+        letter-spacing:
+            -0.035em;
+
+        margin-bottom:
+            1.35rem;
+    }
+
+
+    .hero-sub {
+        font-size: 1rem;
+
+        line-height: 1.6;
+
+        margin-bottom:
+            1.35rem;
+    }
+
+
+    .hero-actions {
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 0.8rem;
+
+        width: 100%;
+    }
+
+
+    .hero-actions .btn {
+        width: 100%;
+
+        padding:
+            0.9rem 1rem;
+    }
+
+
+    /*
+       Full-width artwork underneath.
+       Most importantly:
+       HEIGHT IS AUTO.
+    */
+
+    .hero-image-wrapper {
+        width:
+            calc(100% - 1rem);
+
+        height: auto;
+
+        margin-top:
+            1rem;
+
+        border-radius:
+            20px 20px 0 0;
+    }
+
+
+    .hero-bg-img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+}
+
+
+
+/* =========================================================
+   EXTRA-SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero .container {
+        width:
+            calc(100% - 1rem);
+    }
+
+
+    .hero-content {
+        padding:
+            1.25rem;
+    }
+
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.15rem,
+                10.3vw,
+                2.55rem
+            );
+    }
+
+
+    .hero-sub {
+        font-size:
+            0.96rem;
+    }
+
+
+    .hero-image-wrapper {
+        width:
+            calc(100% - 0.5rem);
+
+        margin-top:
+            0.75rem;
+    }
+
+}
+
+/* =========================================================
+   FINAL DESKTOP HERO IMAGE FIX
+   Removes green letterboxing around illustration
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    /*
+       Keep the overall hero tall enough to feel intentional,
+       but don't force the artwork itself to fill that height.
+    */
+    .hero {
+        min-height: calc(100svh - 80px);
+        align-items: center;
+    }
+
+
+    /*
+       The wrapper now sizes itself based on the actual image
+       instead of becoming a giant viewport-height green box.
+    */
+    .hero-image-wrapper {
+        width: 100%;
+
+        height: auto;
+        min-height: 0;
+
+        align-self: center;
+
+        margin: 0;
+
+        background: transparent;
+
+        border-radius: 0;
+
+        overflow: hidden;
+
+        clip-path: none;
+    }
+
+
+    /*
+       Most important part:
+       width determines the image size;
+       height follows its natural aspect ratio.
+       
+       This means:
+       - all four dogs remain visible
+       - no cropping
+       - no green bars
+    */
+    .hero-bg-img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        object-fit: initial;
+        object-position: center;
+
+        transform: none;
+    }
+
+
+    .hero-image-wrapper::after {
+        display: none;
+    }
+
+}
+
+@media (min-width: 1600px) {
+
+    .hero-image-wrapper {
+        width: calc(100% - 2rem);
+        margin-right: 2rem;
+
+        border-radius: 0 0 0 24px;
+    }
+
+}
+
+/* =========================================================
+   DESKTOP HERO — IMAGE DEFINES HERO HEIGHT
+   No cropping, no green bars, no white letterboxing
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    /*
+       IMPORTANT:
+       Stop forcing the hero to viewport height.
+       The image will now determine the natural hero height.
+    */
+    .hero {
+        min-height: 0;
+        height: auto;
+
+        grid-template-columns:
+            minmax(400px, 43%)
+            minmax(0, 57%);
+
+        align-items: stretch;
+
+        padding-top: 80px;
+        padding-bottom: 0;
+    }
+
+
+    /*
+       Vertically center the text against
+       the height created by the artwork.
+    */
+    .hero .container {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+
+        padding-top: 0;
+        padding-bottom: 0;
+
+        padding-left:
+            clamp(3rem, 7vw, 8rem);
+
+        padding-right:
+            clamp(2rem, 4vw, 4rem);
+    }
+
+
+    .hero-content {
+        width: 100%;
+        max-width: 550px;
+
+        margin: 0;
+        padding: 0;
+
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+
+    /*
+       Kill ALL previous viewport-height,
+       green background, margin, and width overrides.
+    */
+    .hero-image-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        margin: 0;
+
+        align-self: stretch;
+
+        background: transparent;
+
+        border-radius:
+            0 0 0 24px;
+
+        overflow: hidden;
+
+        clip-path: none;
+    }
+
+
+    /*
+       THIS IMAGE NOW DEFINES THE HEIGHT.
+
+       Width = available column width.
+       Height = whatever the artwork naturally needs.
+    */
+    .hero-bg-img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        max-width: none;
+
+        object-fit: initial;
+        object-position: center;
+
+        transform: none;
+    }
+
+
+    .hero-image-wrapper::after {
+        display: none;
+    }
+
+}
+/* =========================================================
+   COMPACT DESKTOP / NEST HUB FIX
+   1200px–1399px
+
+   Keeps the 2-column hero, but:
+   - clears the fixed navigation
+   - gives text more breathing room
+   - prevents heading clipping
+   - keeps all 4 dogs visible
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+
+    .hero {
+        /*
+           Header is closer to ~90px tall,
+           so 80px was allowing content underneath it.
+        */
+        padding-top: 96px;
+
+        min-height: 0;
+        height: auto;
+
+        /*
+           Give text slightly more room than before.
+        */
+        grid-template-columns:
+            minmax(420px, 44%)
+            minmax(0, 56%);
+
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------
+       TEXT SIDE
+    ----------------------------------------- */
+
+    .hero .container {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+
+        padding:
+            2.25rem
+            clamp(2rem, 3.5vw, 3rem)
+            2.25rem
+            clamp(3rem, 5vw, 4.5rem);
+    }
+
+
+    .hero-content {
+        width: 100%;
+        max-width: 470px;
+
+        margin: 0;
+        padding: 0;
+
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+
+
+    /*
+       Slightly smaller here than on a huge desktop.
+       This keeps "Relationships." from becoming
+       enormous and keeps the hero nicely balanced.
+    */
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.65rem,
+                4.1vw,
+                3.3rem
+            );
+
+        line-height: 0.99;
+
+        letter-spacing: -0.035em;
+
+        margin-bottom: 1.35rem;
+    }
+
+
+    .hero-sub {
+        max-width: 450px;
+
+        font-size: 1rem;
+        line-height: 1.65;
+
+        margin-bottom: 1.5rem;
+    }
+
+
+    /*
+       Keep both buttons side-by-side when possible.
+    */
+    .hero-actions {
+        display: flex;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        justify-content: flex-start;
+
+        gap: 0.75rem;
+    }
+
+
+    .hero-actions .btn {
+        padding:
+            0.85rem 1.45rem;
+
+        font-size: 0.92rem;
+    }
+
+
+    /* -----------------------------------------
+       IMAGE SIDE
+    ----------------------------------------- */
+
+    .hero-image-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        align-self: center;
+
+        margin: 0;
+
+        background: transparent;
+
+        border-radius:
+            0 0 0 22px;
+
+        overflow: hidden;
+
+        clip-path: none;
+    }
+
+
+    /*
+       Preserve the actual illustration.
+
+       No cover = no sacrificed dogs.
+       No fixed height = no bars.
+    */
+    .hero-bg-img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        max-width: none;
+
+        object-fit: contain;
+        object-position: center;
+
+        transform: none;
+    }
+
+
+    .hero-image-wrapper::after {
+        display: none;
+    }
+
+}
+
+
+
+/* =========================================================
+   LARGE DESKTOP
+   Let the more spacious version begin here instead.
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .hero {
+        padding-top: 92px;
+
+        min-height: 0;
+        height: auto;
+
+        grid-template-columns:
+            minmax(440px, 43%)
+            minmax(0, 57%);
+
+        align-items: center;
+    }
+
+
+    .hero-image-wrapper {
+        height: auto;
+        min-height: 0;
+
+        background: transparent;
+    }
+
+
+    .hero-bg-img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+}
+/* =========================================================
+   HEADER / HERO GAP FIX
+========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+}
+
+
+/* Compact desktop / Nest Hub */
+@media (min-width: 1200px) and (max-width: 1399px) {
+
+    .hero {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+}
+
+
+/* Large desktop */
+@media (min-width: 1400px) {
+
+    .hero {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+}
+
+/* =========================================================
+   REAL DOGS, REAL RESULTS
+   MORE OBVIOUS SCROLL ANIMATION
+========================================================= */
+
+
+/* -----------------------------------------
+   HEADING — STARTING STATE
+----------------------------------------- */
+
+#gallery .section-header h2 {
+    opacity: 0;
+
+    transform:
+        translateX(-70px)
+        scale(0.92);
+
+    transform-origin:
+        left center;
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.8s cubic-bezier(.16, .8, .25, 1);
+}
+
+
+/* -----------------------------------------
+   HEADING — SCROLLED INTO VIEW
+----------------------------------------- */
+
+#gallery.gallery-in-view .section-header h2 {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        scale(1);
+}
+
+
+
+/* -----------------------------------------
+   PINK UNDERLINE
+----------------------------------------- */
+
+#gallery .section-header h2::after {
+    width: 90px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.6s cubic-bezier(.16, .8, .25, 1)
+        0.45s;
+}
+
+
+#gallery.gallery-in-view .section-header h2::after {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+
+
+
+/* -----------------------------------------
+   SUBTITLE
+----------------------------------------- */
+
+#gallery .section-header p {
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity 0.6s ease 0.3s,
+        transform 0.7s cubic-bezier(.16, .8, .25, 1)
+        0.3s;
+}
+
+
+#gallery.gallery-in-view .section-header p {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+
+/* -----------------------------------------
+   DOG PHOTO CAROUSEL
+----------------------------------------- */
+
+#gallery .photo-marquee-container {
+    opacity: 0;
+
+    transform:
+        translateY(55px)
+        scale(0.97);
+
+    transition:
+        opacity 0.75s ease 0.45s,
+        transform 0.9s cubic-bezier(.16, .8, .25, 1)
+        0.45s;
+}
+
+
+#gallery.gallery-in-view .photo-marquee-container {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+
+/* -----------------------------------------
+   OPTIONAL: HEADING LITTLE SETTLE
+----------------------------------------- */
+
+@keyframes galleryHeadingSettle {
+
+    0% {
+        transform:
+            translateX(0)
+            scale(1);
+    }
+
+    45% {
+        transform:
+            translateX(0)
+            scale(1.025);
+    }
+
+    100% {
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+#gallery.gallery-in-view .section-header h2 {
+    animation:
+        galleryHeadingSettle
+        0.45s
+        ease
+        0.72s
+        both;
+}
+
+
+
+/* -----------------------------------------
+   ACCESSIBILITY
+----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #gallery .section-header h2,
+    #gallery .section-header p,
+    #gallery .photo-marquee-container {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+        animation: none;
+    }
+
+}
+
+#testimonials {
+    display: none;
+}
+
+/* =========================================
+   GALLERY BACKGROUND
+========================================= */
+
+#gallery {
+    background-color: #f3eee8;
+}
