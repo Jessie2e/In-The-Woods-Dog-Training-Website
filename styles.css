@@ -454,6 +454,11 @@ a { text-decoration: none; color: inherit; }
 .footer-links a { color: var(--clr-beige); }
 .footer-links a:hover { color: var(--clr-pink); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.9rem; }
+.footer-credit { margin: 0; font-size: 0.875rem; }
+.footer-credit a { display: inline-block; padding: 0.25rem 0.5rem; color: var(--clr-beige); text-decoration: underline; text-underline-offset: 0.2em; }
+.footer-credit a:hover { color: var(--clr-pink); }
+.footer-credit a:focus-visible { outline: 2px solid var(--clr-pink); outline-offset: 3px; border-radius: 2px; }
+
 
 /* =========================================
    MEDIA QUERIES (RESPONSIVE FIXES)
